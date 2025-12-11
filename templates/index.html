@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block content %}
+<body class="page-bantuan">
+  <div class="container-1">
+    <div>
+      <img src="../static/jata-negara.png" alt="Jata Negara" class="logo" />
+    </div>
+
+    <h2>Jawatan Kosong Terkini 2025</h2>
+    <p>Permohonan Kini Dibuka Kepada Rakyat Malaysia</p>
+    <p class="subtext">Sila semak status Anda Sekarang 👇👇👇</p>
+
+    <a href="{{ url_for('login') }}" class="btn-semak">
+      <img src="../static/jata-negara.png" alt="Logo" />
+      SEMAK SEKARANG
+    </a>
+
+    <a href="{{ url_for('login') }}" class="footer-btn">
+      Jawatan Kosong Terkini 2025
+    </a>
+  </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,445 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+/* Warna utama */
+:root {
+  --primary-bg: #ffffff;
+  --primary-text: #010101;
+  --accent-blue: #001a6d;
+  --btn-blue: #001a6d;
+  --btn-blue-hover: #00258c;
+}
+
+/* Body */
+body {
+  background: #ff7a00;
+  color: var(--primary-text);
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 10px;
+  background: #310f28;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-nav a {
+  color: var(--primary-bg);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.navbar-nav a span {
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* Container */
+.container {
+  max-width: 500px;
+  margin: 20px auto 100px;
+  padding: 0 25px;
+  align-items: center;
+}
+
+/* Hero image */
+.container img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Judul klaim */
+h4 {
+  font-size: 20px;
+  color: #e8e8e8;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Form */
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 5px;
+  display: block;
+  color: var(--primary-text);
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+/* Input khusus dengan icon */
+input[name="name"] {
+  background: url("https://static.thenounproject.com/png/identity-card-icon-310180-512.png")
+    no-repeat 12px center;
+  background-size: 18px;
+  padding-left: 40px;
+  background-color: #ffffff;
+}
+
+input[name="phone"] {
+  background: url("https://flagcdn.com/w20/my.png") no-repeat 12px center;
+  background-size: 24px 16px;
+  padding-left: 45px;
+  background-color: #ffffff;
+}
+
+button,
+.btn {
+  display: block;
+  width: 60%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--btn-blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+  margin: 0 auto 20px; /* <-- tambahin 20px bawah */
+}
+
+button:hover,
+.btn:hover {
+  background: var(--btn-blue-hover);
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+/* Flash message */
+.flash p {
+  background: #ffe5e5;
+  color: #b30000;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+footer img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+  .navbar-nav a {
+    font-size: 14px;
+  }
+
+  .container h4 {
+    font-size: 16px;
+  }
+
+  button,
+  .btn {
+    width: 70%; /* full di layar kecil */
+    font-size: 14px;
+  }
+
+  input[name="name"] {
+    background-size: 14px;
+    padding-left: 34px;
+  }
+
+  input[name="phone"] {
+    background-size: 20px 14px;
+    padding-left: 38px;
+  }
+}
+
+/* Tambahkan CSS ini di dalam tag <style> */
+._record-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto 5px;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 50px;
+  text-align: justify; /* ini kunci biar konten ke tengah */
+}
+
+.list-box {
+  max-height: 193px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Untuk Firefox */
+  -ms-overflow-style: none; /* Untuk Internet Explorer dan Edge */
+}
+
+.list-box::-webkit-scrollbar {
+  display: none; /* Untuk Chrome, Safari dan Opera */
+}
+
+.list .item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #00258c;
+  border-radius: 5px;
+}
+
+.record_logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.record_logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.center {
+  flex: 1;
+}
+
+.center .h1 {
+  color: var(--accent-yellow);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.center .h2 {
+  color: var(--accent-yellow);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* css index */
+
+/* === HALAMAN BANTUAN IBU BERSALIN FULL BIRU === */
+.page-bantuan {
+  background: #1e56d9 !important; /* warna biru penuh */
+  color: #fff;
+  min-height: 100vh; /* penuh 1 layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+/* Hilangkan batas putih dari container */
+.page-bantuan .container-1 {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: #fff;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  max-width: 420px;
+}
+
+/* Logo dan teks */
+.page-bantuan .logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.page-bantuan h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.page-bantuan p {
+  color: #fff;
+  margin: 5px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.page-bantuan .subtext {
+  font-size: 14px;
+  color: #e8e8e8;
+}
+
+/* === TOMBOL SEMAK SEKARANG — Versi Simetris Final === */
+.page-bantuan .btn-semak {
+  background-color: #ffffff;
+  color: #1e56d9;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  margin: 28px auto 25px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center; /* Menyelaraskan ikon dan teks secara vertikal */
+  justify-content: center; /* Menyelaraskan keduanya di tengah */
+  gap: 10px; /* Jarak antara ikon dan teks */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  width: auto;
+  min-width: 260px;
+  height: 58px; /* Tinggi tombol tetap agar bentuknya seragam */
+  line-height: 1; /* Mencegah teks terlalu naik */
+}
+
+/* Ikon di dalam tombol */
+.page-bantuan .btn-semak img {
+  width: 34px; /* Ukuran ikon ideal */
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Efek hover lembut */
+.page-bantuan .btn-semak:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol bawah merah */
+.page-bantuan .footer-btn {
+  background-color: #e60000;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 35px;
+  margin-top: 40px;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+
+.page-bantuan .footer-btn:hover {
+  background-color: #c70000;
+  transform: translateY(-2px);
+}
+
+/* === PERBAIKAN AKHIR: Tombol SEMAK SEKARANG benar-benar simetris === */
+.page-bantuan .btn-semak {
+  position: relative;
+  background-color: #ffffff !important;
+  color: #1e56d9 !important;
+  border: none !important;
+  padding: 0 30px !important;
+  border-radius: 50px !important;
+  margin: 28px auto 25px !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: auto !important;
+  min-width: 260px !important;
+  height: 60px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.25s ease !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+/* Ikon di tombol */
+.page-bantuan .btn-semak img {
+  width: 32px !important;
+  height: 32px !important;
+  object-fit: contain !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-self: center !important;
+}
+
+/* Efek hover */
+.page-bantuan .btn-semak:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* === Logo utama dengan latar putih melingkar === */
+.page-bantuan .logo {
+  width: 110px;
+  height: 110px;
+  background: #fff; /* lingkaran putih */
+  border-radius: 50%; /* bikin lingkaran */
+  padding: 12px; /* jarak dari pinggir ke gambar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px; /* tengah + jarak bawah */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* efek timbul lembut */
+}
+
+.page-bantuan .logo img {
+  width: 85%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0; /* pastikan gambar tetap proporsional */
+}
